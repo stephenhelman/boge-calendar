@@ -48,6 +48,15 @@ app.use("/user", userRouter);
 app.use("/url", urlRouter);
 app.use("/client", clientRouter); */
 
+const __dirname = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/dist")));
+  app.use("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  });
+}
+
 app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
