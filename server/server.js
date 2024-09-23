@@ -37,7 +37,7 @@ app.use(cookieParser());
 
 //production routes
 app.use("/api/auth", authRouter);
-app.use("/api/users", userRouter);
+app.use("/api/user", userRouter);
 app.use("/api/url", urlRouter);
 app.use("/api/client", clientRouter);
 
