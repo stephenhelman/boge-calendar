@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import usePersist from "../hooks/usePersist";
 
 const Footer = () => {
   const [sendLogout, { isLoading, isSuccess, isError, error }] =
@@ -10,9 +11,11 @@ const Footer = () => {
 
   const { id, username } = useAuth();
   const navigate = useNavigate();
+  const [persist, setPersist] = usePersist();
 
   const handleSettingsClicked = () => navigate(`/home/users/${id}`);
   const handleLogout = async () => {
+    if (persist) setPersist(false);
     await sendLogout();
     navigate("/");
   };

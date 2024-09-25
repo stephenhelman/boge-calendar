@@ -13,10 +13,20 @@ export const clientsApiSlice = apiSlice.injectEndpoints({
         return response.status === 200 && !result.isError;
       },
       transformResponse: (responseData) => {
-        const loadedClients = responseData.map((client) => {
-          client.id = client._id;
-          return client;
-        });
+        const loadedClients = responseData
+          .map((client) => {
+            client.id = client._id;
+            return client;
+          })
+          .sort((a, b) => {
+            const dateA = a.updatedAt ?? null;
+            const dateB = b.updatedAt ?? null;
+
+            if (dateA > dateB) return -1;
+            if (dateA < dateB) return 1;
+            if (dateA === null || dateB === null) return 0;
+            return 0;
+          });
         return clientsAdapter.setAll(initialState, loadedClients);
       },
       providesTags: (result, error, arg) => {
