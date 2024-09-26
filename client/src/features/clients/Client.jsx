@@ -21,25 +21,31 @@ const Client = ({ clientId, url }) => {
     const clientName = `${client.firstName} ${client.lastName}`;
     const clientStage = stages[client.stage];
     content = (
-      <tr className="clientBodyRow">
-        <td>{clientName}</td>
-        <td>{client.username}</td>
-        <td>{clientStage}</td>
-        <td>{url?.newURL}</td>
-        <td>
-          <CopyToClipboard text={url?.newURL}>
-            <button>
-              <FontAwesomeIcon icon={faCopy} />
-            </button>
-          </CopyToClipboard>
-        </td>
-        <RefreshButton url={url} />
-        <td>
-          <button onClick={handleEdit}>
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </button>
-        </td>
-      </tr>
+      <div className="clientCard">
+        <div className="clientContainer">
+          <div className="clientInformation">
+            <div className="clientNameContainer">
+              <h2 className="clientName">{clientName}</h2>
+              <button className="edit" title="edit client" onClick={handleEdit}>
+                <FontAwesomeIcon icon={faPenToSquare} />
+              </button>
+            </div>
+            <div className="clientLinkContainer">
+              <p>{url?.newURL}</p>
+              <CopyToClipboard text={url?.newURL}>
+                <button title="copy link">
+                  <FontAwesomeIcon icon={faCopy} />
+                </button>
+              </CopyToClipboard>
+              <RefreshButton url={url} />
+            </div>
+          </div>
+          <div className="userInfo">
+            <p className="username">{client.username}</p>
+            <p className="stage">{clientStage}</p>
+          </div>
+        </div>
+      </div>
     );
   }
 

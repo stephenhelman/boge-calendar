@@ -12,7 +12,11 @@ const NewButton = () => {
     path = "/admin/users/new";
   }
   const handleNew = () => navigate(path);
-  return <button onClick={handleNew}>+</button>;
+  return (
+    <button className="newButton" onClick={handleNew}>
+      +
+    </button>
+  );
 };
 
 export default NewButton;

@@ -132,7 +132,7 @@ const NewClientForm = ({ users }) => {
     <>
       <p>{errorContent}</p>
 
-      <form onSubmit={handleAddNewClient}>
+      <form onSubmit={handleAddNewClient} className="welcomeContainer">
         <div>
           <label htmlFor="firstName">Client First Name:</label>
           <input

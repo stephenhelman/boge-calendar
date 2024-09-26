@@ -90,7 +90,7 @@ const EditUserForm = ({ user }) => {
   ) : null;
 
   return (
-    <form onSubmit={handleSaveUser}>
+    <form onSubmit={handleSaveUser} className="welcomeContainer">
       <div>
         <label htmlFor="firstName">First Name:</label>
         <input

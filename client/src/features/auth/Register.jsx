@@ -37,9 +37,9 @@ const Register = () => {
 
   if (!toggle) {
     content = (
-      <div>
+      <div className="welcomeContainer">
         <h1>Create an account</h1>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
@@ -49,7 +49,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
@@ -59,7 +59,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -69,7 +69,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -79,7 +79,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -89,7 +89,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="confirmPassword"
@@ -108,7 +108,7 @@ const Register = () => {
 
   if (toggle) {
     content = (
-      <div>
+      <div className="welcomeContainer">
         <h1>Create Your Appointment Schedule</h1>
         <div>
           <ol>
@@ -128,7 +128,7 @@ const Register = () => {
           </ol>
         </div>
         <form>
-          <div>
+          <div className="inputContainer">
             <label htmlFor="initial">Initial Meeting Link:</label>
             <input
               type="initial"
@@ -138,7 +138,7 @@ const Register = () => {
               required
             />
           </div>
-          <div>
+          <div className="inputContainer">
             <label htmlFor="funding">Funding Call Link:</label>
             <input
               type="funding"
@@ -148,7 +148,7 @@ const Register = () => {
               required
             />
           </div>
-          <div>
+          <div className="inputContainer">
             <label htmlFor="strategy">Strategy Call Link:</label>
             <input
               type="strategy"
@@ -167,7 +167,12 @@ const Register = () => {
     );
   }
 
-  return content;
+  return (
+    <>
+      <Link to="/">Return to Home</Link>
+      {content}
+    </>
+  );
 };
 
 export default Register;

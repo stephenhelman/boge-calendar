@@ -28,7 +28,7 @@ const Footer = () => {
     </button>
   );
   return (
-    <footer>
+    <footer className="footerMain">
       {logoutButton}
       <div className="footerUser">
         <p>Active User: {username}</p>

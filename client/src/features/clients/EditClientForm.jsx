@@ -102,7 +102,7 @@ const EditClientForm = ({ client, users }) => {
     <>
       <p>{errorContent}</p>
 
-      <form onSubmit={handleUpdateClient}>
+      <form onSubmit={handleUpdateClient} className="welcomeContainer">
         <div>
           <label htmlFor="firstName">Client First Name:</label>
           <input

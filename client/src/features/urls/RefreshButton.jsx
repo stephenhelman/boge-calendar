@@ -14,7 +14,7 @@ const RefreshButton = ({ url }) => {
 
   return (
     <td>
-      <button onClick={handleRefresh}>
+      <button title="refresh link" onClick={handleRefresh}>
         <FontAwesomeIcon icon={faRefresh} />
       </button>
     </td>

@@ -162,7 +162,7 @@ const ClientList = () => {
       stageFilterButton = <button onClick={handleSortByStage}>Stage</button>;
     }
 
-    const tableContent =
+    const clientList =
       ids?.length &&
       filteredClients.map((clientId) => {
         const clientUrl = urlEntityArray.filter(
@@ -170,47 +170,26 @@ const ClientList = () => {
         );
         return <Client key={clientId} clientId={clientId} url={clientUrl[0]} />;
       });
+
+    const headerContent = (
+      <div className="headerOverlay">
+        <header className="searchbar">
+          <SearchBar state={search} setState={setSearch} />
+          {clientFilterButton}
+          {stageFilterButton}
+          {resetButton}
+        </header>
+      </div>
+    );
     content = (
-      <table className="clientTable">
-        <thead className="clientHeader">
-          <tr className="clientHeaderRow">
-            <th scope="col" className="clientHeaderCell">
-              {clientFilterButton}
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              User
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              {stageFilterButton}
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              Link
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              Copy
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              Refresh
-            </th>
-            <th scope="col" className="clientHeaderCell">
-              Edit
-            </th>
-          </tr>
-        </thead>
-        <tbody className="clientBody">{tableContent}</tbody>
-      </table>
+      <>
+        {headerContent}
+        {clientList}
+      </>
     );
   }
 
-  return (
-    <main>
-      <div className="container tableContainer">
-        <SearchBar state={search} setState={setSearch} />
-        {resetButton}
-        {content}
-      </div>
-    </main>
-  );
+  return <main className="clientList">{content}</main>;
 };
 
 export default ClientList;
