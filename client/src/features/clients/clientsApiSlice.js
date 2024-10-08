@@ -22,8 +22,8 @@ export const clientsApiSlice = apiSlice.injectEndpoints({
             const dateA = a.updatedAt ?? null;
             const dateB = b.updatedAt ?? null;
 
-            if (dateA > dateB) return -1;
-            if (dateA < dateB) return 1;
+            if (dateA > dateB) return 1;
+            if (dateA < dateB) return -1;
             if (dateA === null || dateB === null) return 0;
             return 0;
           });

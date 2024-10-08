@@ -19,7 +19,6 @@ const EditClient = () => {
       users: data?.ids.map((id) => data?.entities[id]),
     }),
   });
-  console.log(users);
 
   if (!client || !users.length) return <PulseLoader color={"#000"} />;
 

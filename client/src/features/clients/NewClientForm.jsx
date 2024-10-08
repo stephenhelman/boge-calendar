@@ -118,7 +118,8 @@ const NewClientForm = ({ users }) => {
       client: clientId,
     });
     console.log("Url Created");
-    const { _id: urlId } = newUrl;
+    const { data } = newUrl;
+    const { _id: urlId } = data;
 
     //assign the url to the client
     await updateClient({

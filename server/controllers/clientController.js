@@ -72,7 +72,7 @@ const updateClient = expressAsyncHandler(async (req, res) => {
   if (req?.body?.calendarLink) client.calendarLink = calendarLink;
   if (req?.body?.stage) client.stage = stage;
 
-  const result = client.save();
+  const result = await client.save();
   res.json({ message: `Client ID ${req.body.id} updated` });
 });
 

@@ -62,7 +62,6 @@ const updateRedirect = expressAsyncHandler(async (req, res) => {
   const url = await Url.findOne({ _id: id }).exec();
   if (!url)
     return res.status(400).json({ message: `Url ID ${req.body.id} not found` });
-  console.log(url);
 
   const { originalUrl, client, expiresIn, stage } = req.body;
 
