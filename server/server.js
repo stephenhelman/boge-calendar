@@ -13,9 +13,9 @@ import { router as urlRouter } from "./routes/urls.js";
 import { router as clientRouter } from "./routes/clients.js";
 import { router as authRouter } from "./routes/auth.js";
 
-import cors from "cors";
+/* import cors from "cors";
 import { corsOptions } from "./config/corsOptions.js";
-import { credentials } from "./middleware/credentials.js";
+import { credentials } from "./middleware/credentials.js"; */
 
 import { errorHandler } from "./middleware/errorHandler.js";
 import { logger } from "./middleware/logger.js";
@@ -26,11 +26,11 @@ const PORT = process.env.PORT || 3500;
 connectDB();
 
 app.use(logger);
-app.use(credentials);
+/* app.use(credentials); */
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(cors(corsOptions));
+/* app.use(cors(corsOptions)); */
 
 app.use(express.json());
 app.use(cookieParser());
